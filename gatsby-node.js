@@ -1,4 +1,4 @@
-//const webpack = require("webpack");
+// const webpack = require("webpack");
 const _ = require("lodash");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
@@ -19,18 +19,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       createNodeField({
         node,
         name: `slug`,
-        value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`
+        value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
       });
     }
     createNodeField({
       node,
       name: `prefix`,
-      value: separtorIndex ? slug.substring(1, separtorIndex) : ""
+      value: separtorIndex ? slug.substring(1, separtorIndex) : "",
     });
     createNodeField({
       node,
       name: `source`,
-      value: source
+      value: source,
     });
   }
 };
@@ -44,17 +44,20 @@ exports.createPages = ({ graphql, actions }) => {
     const categoryTemplate = path.resolve("./src/templates/CategoryTemplate.js");
 
     // Do not create draft post files in production.
-    let activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
-    console.log(`Using environment config: '${activeEnv}'`)
+    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development";
+    console.log(`Using environment config: '${activeEnv}'`);
     let filters = `filter: { fields: { slug: { ne: null } } }`;
-    if (activeEnv == "production") filters = `filter: { fields: { slug: { ne: null } , prefix: { ne: null } } }`
+    if (activeEnv == "production")
+      filters = `filter: { fields: { slug: { ne: null } , prefix: { ne: null } } }`;
 
     resolve(
       graphql(
         `
           {
             allMarkdownRemark(
-              ` + filters + `
+              ` +
+          filters +
+          `
               sort: { fields: [fields___prefix], order: DESC }
               limit: 1000
             ) {
@@ -75,7 +78,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors);
           reject(result.errors);
@@ -85,11 +88,11 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create category list
         const categorySet = new Set();
-        items.forEach(edge => {
+        items.forEach((edge) => {
           const {
             node: {
-              frontmatter: { category }
-            }
+              frontmatter: { category },
+            },
           } = edge;
 
           if (category && category !== null) {
@@ -99,18 +102,18 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create category pages
         const categoryList = Array.from(categorySet);
-        categoryList.forEach(category => {
+        categoryList.forEach((category) => {
           createPage({
             path: `/category/${_.kebabCase(category)}/`,
             component: categoryTemplate,
             context: {
-              category
-            }
+              category,
+            },
           });
         });
 
         // Create posts
-        const posts = items.filter(item => item.node.fields.source === "posts");
+        const posts = items.filter((item) => item.node.fields.source === "posts");
         posts.forEach(({ node }, index) => {
           const slug = node.fields.slug;
           const next = index === 0 ? undefined : posts[index - 1].node;
@@ -124,13 +127,13 @@ exports.createPages = ({ graphql, actions }) => {
               slug,
               prev,
               next,
-              source
-            }
+              source,
+            },
           });
         });
 
         // and pages.
-        const pages = items.filter(item => item.node.fields.source === "pages");
+        const pages = items.filter((item) => item.node.fields.source === "pages");
         pages.forEach(({ node }) => {
           const slug = node.fields.slug;
           const source = node.fields.source;
@@ -140,8 +143,8 @@ exports.createPages = ({ graphql, actions }) => {
             component: pageTemplate,
             context: {
               slug,
-              source
-            }
+              source,
+            },
           });
         });
       })
@@ -159,9 +162,9 @@ exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
             reportFilename: "./report/treemap.html",
             openAnalyzer: true,
             logLevel: "error",
-            defaultSizes: "gzip"
-          })
-        ]
+            defaultSizes: "gzip",
+          }),
+        ],
       });
   }
 };

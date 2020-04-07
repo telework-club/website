@@ -8,23 +8,23 @@ import Headline from "../components/Article/Headline";
 import List from "../components/List";
 import Seo from "../components/Seo";
 
-const CategoryPage = props => {
+const CategoryPage = (props) => {
   const {
     data: {
       posts: { edges: posts },
       site: {
-        siteMetadata: { facebook }
-      }
-    }
+        siteMetadata: { facebook },
+      },
+    },
   } = props;
 
   // Create category list
   const categories = {};
-  posts.forEach(edge => {
+  posts.forEach((edge) => {
     const {
       node: {
-        frontmatter: { category }
-      }
+        frontmatter: { category },
+      },
     } = edge;
 
     if (category && category != null) {
@@ -37,19 +37,19 @@ const CategoryPage = props => {
 
   const categoryList = [];
 
-  for (var key in categories) {
+  for (const key in categories) {
     categoryList.push([key, categories[key]]);
   }
 
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
-        {theme => (
+        {(theme) => (
           <Article theme={theme}>
             <header>
               <Headline title="Posts by categories" theme={theme} />
             </header>
-            {categoryList.map(item => (
+            {categoryList.map((item) => (
               <section key={item[0]}>
                 <h2>
                   <FaTag /> {item[0]}
@@ -77,12 +77,12 @@ const CategoryPage = props => {
 };
 
 CategoryPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
 };
 
 export default CategoryPage;
 
-//eslint-disable-next-line no-undef
+// eslint-disable-next-line no-undef
 export const query = graphql`
   query PostsQuery {
     posts: allMarkdownRemark(

@@ -14,12 +14,12 @@ import "antd/lib/input/style/index.css";
 import "antd/lib/button/style/index.css";
 import { ThemeContext } from "../../layouts";
 
-const Contact = props => {
+const Contact = (props) => {
   const { getFieldDecorator } = props.form;
 
   function encode(data) {
     return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
   }
 
@@ -37,13 +37,13 @@ const Contact = props => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values })
+      body: encode({ "form-name": "contact", ...values }),
     })
       .then(() => {
         console.log("Form submission success");
         navigate("/success");
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Form submission error:", error);
         this.handleNetworkError();
       });
@@ -56,7 +56,7 @@ const Contact = props => {
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
-        {theme => (
+        {(theme) => (
           <div className="form">
             <Form
               name="contact"
@@ -68,9 +68,9 @@ const Contact = props => {
                 {getFieldDecorator("name", {
                   rules: [
                     {
-                      whitespace: true
-                    }
-                  ]
+                      whitespace: true,
+                    },
+                  ],
                 })(<Input name="name" />)}
               </FormItem>
               <FormItem label="E-mail">
@@ -80,16 +80,16 @@ const Contact = props => {
                       required: true,
                       message: "Please input your e-mail address!",
                       whitespace: true,
-                      type: "email"
-                    }
-                  ]
+                      type: "email",
+                    },
+                  ],
                 })(<Input name="email" />)}
               </FormItem>
               <FormItem label="Message">
                 {getFieldDecorator("message", {
                   rules: [
-                    { required: true, message: "Please input your message!", whitespace: true }
-                  ]
+                    { required: true, message: "Please input your message!", whitespace: true },
+                  ],
                 })(
                   <TextArea name="message" placeholder="" autosize={{ minRows: 4, maxRows: 10 }} />
                 )}
@@ -153,7 +153,7 @@ const Contact = props => {
 };
 
 Contact.propTypes = {
-  form: PropTypes.object
+  form: PropTypes.object,
 };
 
 const ContactForm = Form.create({})(Contact);

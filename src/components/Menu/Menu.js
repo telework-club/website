@@ -15,11 +15,11 @@ class Menu extends React.Component {
     super(props);
     this.itemList = React.createRef();
 
-    const pages = props.pages.map(page => ({
+    const pages = props.pages.map((page) => ({
       to: page.node.fields.slug,
       label: page.node.frontmatter.menuTitle
         ? page.node.frontmatter.menuTitle
-        : page.node.frontmatter.title
+        : page.node.frontmatter.title,
     }));
 
     this.items = [
@@ -27,7 +27,7 @@ class Menu extends React.Component {
       { to: "/category/", label: "Categories", icon: FaTag },
       { to: "/search/", label: "Search", icon: FaSearch },
       ...pages,
-      { to: "/contact/", label: "Contact", icon: FaEnvelope }
+      { to: "/contact/", label: "Contact", icon: FaEnvelope },
     ];
 
     this.renderedItems = []; // will contain references to rendered DOM elements of menu
@@ -35,7 +35,7 @@ class Menu extends React.Component {
 
   state = {
     open: false,
-    hiddenItems: []
+    hiddenItems: [],
   };
 
   static propTypes = {
@@ -44,7 +44,7 @@ class Menu extends React.Component {
     screenWidth: PropTypes.number.isRequired,
     fontLoaded: PropTypes.bool.isRequired,
     pages: PropTypes.array.isRequired,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
@@ -93,7 +93,7 @@ class Menu extends React.Component {
           item.classList.remove("item");
           result.hiddenItems.push({
             to: link.getAttribute("data-slug"),
-            label: link.text
+            label: link.text,
           });
         }
         return result;
@@ -101,14 +101,14 @@ class Menu extends React.Component {
       { visibleItems: [], cumulativeWidth: 0, hiddenItems: [] }
     );
 
-    this.setState(prevState => ({ hiddenItems: menu.hiddenItems }));
+    this.setState((prevState) => ({ hiddenItems: menu.hiddenItems }));
   };
 
-  toggleMenu = e => {
+  toggleMenu = (e) => {
     e.preventDefault();
 
     if (this.props.screenWidth < 1024) {
-      this.renderedItems.map(item => {
+      this.renderedItems.map((item) => {
         const oldClass = this.state.open ? "showItem" : "hideItem";
         const newClass = this.state.open ? "hideItem" : "showItem";
 
@@ -119,16 +119,16 @@ class Menu extends React.Component {
       });
     }
 
-    this.setState(prevState => ({ open: !prevState.open }));
+    this.setState((prevState) => ({ open: !prevState.open }));
   };
 
-  closeMenu = e => {
-    //e.preventDefault();
+  closeMenu = (e) => {
+    // e.preventDefault();
 
     if (this.state.open) {
       this.setState({ open: false });
       if (this.props.screenWidth < 1024) {
-        this.renderedItems.map(item => {
+        this.renderedItems.map((item) => {
           if (item.classList.contains("showItem")) {
             item.classList.add("hideItem");
             item.classList.remove("item");
@@ -146,19 +146,18 @@ class Menu extends React.Component {
       <React.Fragment>
         <nav className={`menu ${open ? "open" : ""}`} rel="js-menu">
           <ul className="itemList" ref={this.itemList}>
-            {this.items.map(item => (
+            {this.items.map((item) => (
               <Item item={item} key={item.label} icon={item.icon} theme={theme} />
             ))}
           </ul>
           {this.state.hiddenItems.length > 0 && <Expand onClick={this.toggleMenu} theme={theme} />}
-          {open &&
-            screenWidth >= 1024 && (
-              <ul className="hiddenItemList">
-                {this.state.hiddenItems.map(item => (
-                  <Item item={item} key={item.label} hiddenItem theme={theme} />
-                ))}
-              </ul>
-            )}
+          {open && screenWidth >= 1024 && (
+            <ul className="hiddenItemList">
+              {this.state.hiddenItems.map((item) => (
+                <Item item={item} key={item.label} hiddenItem theme={theme} />
+              ))}
+            </ul>
+          )}
         </nav>
 
         {/* --- STYLES --- */}
