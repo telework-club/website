@@ -1,6 +1,8 @@
 require("dotenv").config();
 const config = require("./content/meta/config");
 const transformer = require("./src/utils/algolia");
+const path = require("path");
+const process = require("process");
 
 const query = `{
   allMarkdownRemark( filter: { fields: { slug: { ne: null } } }) {
@@ -48,8 +50,12 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-styled-jsx`, // the plugin's code is inserted directly to gatsby-node.js and gatsby-ssr.js files
-    `gatsby-plugin-styled-jsx-postcss`, // as above
+    {
+      resolve: `gatsby-plugin-styled-jsx`,
+      options: {
+        jsxPlugins: [path.join(process.cwd(), "./plugins/styled-jsx-plugin-postcss")],
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
