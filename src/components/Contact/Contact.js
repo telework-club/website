@@ -15,23 +15,17 @@ import "antd/lib/button/style/index.css";
 import { ThemeContext } from "../../layouts";
 
 const Contact = (props) => {
-  const { getFieldDecorator } = props.form;
-
+  const [form] = Form.useForm();
   function encode(data) {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log("Received values of form: ", values);
-        sendMessage(values);
-      }
-    });
-  }
+  const handleFinished = async (values) => {
+    await form.validateFields();
+    sendMessage(values);
+  };
 
   function sendMessage(values) {
     fetch("/", {
@@ -59,40 +53,37 @@ const Contact = (props) => {
         {(theme) => (
           <div className="form">
             <Form
+              form={form}
               name="contact"
-              onSubmit={handleSubmit}
+              onFinish={handleFinished}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <FormItem label="Name">
-                {getFieldDecorator("name", {
-                  rules: [
-                    {
-                      whitespace: true,
-                    },
-                  ],
-                })(<Input name="name" />)}
+              <FormItem label="Name" name="name" rules={[{ whitespace: true }]}>
+                <Input name="name" />
               </FormItem>
-              <FormItem label="E-mail">
-                {getFieldDecorator("email", {
-                  rules: [
-                    {
-                      required: true,
-                      message: "Please input your e-mail address!",
-                      whitespace: true,
-                      type: "email",
-                    },
-                  ],
-                })(<Input name="email" />)}
+              <FormItem
+                label="E-mail"
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your e-mail address!",
+                    whitespace: true,
+                    type: "email",
+                  },
+                ]}
+              >
+                <Input name="email" />
               </FormItem>
-              <FormItem label="Message">
-                {getFieldDecorator("message", {
-                  rules: [
-                    { required: true, message: "Please input your message!", whitespace: true },
-                  ],
-                })(
-                  <TextArea name="message" placeholder="" autosize={{ minRows: 4, maxRows: 10 }} />
-                )}
+              <FormItem
+                label="Message"
+                name="message"
+                rules={[
+                  { required: true, message: "Please input your message!", whitespace: true },
+                ]}
+              >
+                <TextArea name="message" placeholder="" autosize={{ minRows: 4, maxRows: 10 }} />
               </FormItem>
               <FormItem>
                 <Button type="primary" htmlType="submit">
@@ -156,6 +147,6 @@ Contact.propTypes = {
   form: PropTypes.object,
 };
 
-const ContactForm = Form.create({})(Contact);
+// const ContactForm = Form.create({})(Contact);
 
-export default ContactForm;
+export default Contact;
