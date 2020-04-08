@@ -30,22 +30,10 @@ const PostShare = (props) => {
       <div className="share">
         <span className="label">SHARE</span>
         <div className="links">
-          <TwitterShareButton
-            url={url}
-            title={title}
-            additionalProps={{
-              "aria-label": "Twitter share",
-            }}
-          >
+          <TwitterShareButton url={url} title={title}>
             <TwitterIcon round size={iconSize} />
           </TwitterShareButton>
-          <FacebookShareButton
-            url={url}
-            quote={`${title} - ${excerpt}`}
-            additionalProps={{
-              "aria-label": "Facebook share",
-            }}
-          >
+          <FacebookShareButton url={url} quote={`${title} - ${excerpt}`}>
             <FacebookIcon round size={iconSize} />
             <FacebookShareCount url={url}>
               {(count) => <div className="share-count">{filter(count)}</div>}
