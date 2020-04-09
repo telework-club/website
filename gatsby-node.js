@@ -15,11 +15,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const separtorIndex = ~slug.indexOf("--") ? slug.indexOf("--") : 0;
     const shortSlugStart = separtorIndex ? separtorIndex + 2 : 0;
 
-    console.log("---slug orig: ", slug);
-    console.log("---slug: ", `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`);
-    console.log("---prefix: ", separtorIndex ? slug.substring(1, separtorIndex) : "");
-    console.log("---source: ", source);
-
     if (source !== "parts") {
       let customizedPrefix = "";
       if (source == "posts") {
