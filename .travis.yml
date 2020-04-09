@@ -5,7 +5,7 @@ node_js:
   - "13.12.0"
 deploy:
   provider: script
-  script: yarn install && yarn deploy
+  script: sed -i 's/registry.npm.taobao.org/registry.yarnpkg.com/g' yarn.lock && yarn install && yarn deploy
   skip_cleanup: true
   on:
     branch: master
