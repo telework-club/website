@@ -62,8 +62,7 @@
     "lint-errors": "eslint src/**/*.{js,jsx} --quiet",
     "lint": "eslint src/**/*.{js,jsx}",
     "stylelint": "stylelint src/**/*.js",
-    "generate-app-icons": "sh ./scripts/generate-app-icons.sh",
-    "deploy": "yarn build && gh-pages -d public -b master -r https://$GITHUB_TOKEN@github.com/telework-club/telework-club.github.io.git"
+    "generate-app-icons": "sh ./scripts/generate-app-icons.sh"
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.3.0",

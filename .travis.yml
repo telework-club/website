@@ -1,11 +1,19 @@
 language: node_js
-before_script:
-  - sed -i 's/registry.npm.taobao.org/registry.yarnpkg.com/g' yarn.lock
 node_js:
   - "13.12.0"
+cache: yarn
+before_install:
+  - sed -i 's/registry.npm.taobao.org/registry.yarnpkg.com/g' yarn.lock
+install: yarn install
+script:
+  - yarn build
 deploy:
-  provider: script
-  script: yarn install && yarn deploy
+  provider: pages
   skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  repo: telework-club/telework-club.github.io
+  local_dir: public
+  target_branch: master
+  keep_history: true
   on:
     branch: master
