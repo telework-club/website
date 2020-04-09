@@ -2,9 +2,6 @@
 title: footnote
 ---
 
-* it's a demo site of the [gatsby-starter-hero-blog](https://github.com/greglobinski/gatsby-starter-hero-blog)
-* built by [greg lobinski](https://www.greglobinski.com)
-* Check [Front-end web development with Greg](https://dev.greglobinski.com)
-* delivered by [Netlify](https://www.netlify.com/)
-* photos by [unsplash.com](https://unsplash.com)
-* graphic by [pixabay.com](https://pixabay.com)
+- Telework Community © 2020
+- [Source Code](https://github.com/telework-club/website)
+- [京 ICP 备 22222222 号-1](http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11111111111111)
