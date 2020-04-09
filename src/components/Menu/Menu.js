@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
 import { FaHome } from "react-icons/fa/";
-import { FaSearch } from "react-icons/fa/";
 import { FaEnvelope } from "react-icons/fa/";
 import { FaTag } from "react-icons/fa/";
 
@@ -23,11 +22,11 @@ class Menu extends React.Component {
     }));
 
     this.items = [
-      { to: "/", label: "Home", icon: FaHome },
-      { to: "/category/", label: "Categories", icon: FaTag },
+      { to: "/", label: "首页", icon: FaHome },
+      { to: "/category/", label: "专题", icon: FaTag },
       // { to: "/search/", label: "Search", icon: FaSearch },
-      ...pages,
-      { to: "/contact/", label: "Contact", icon: FaEnvelope },
+      // ...pages,
+      { to: "/contact/", label: "关系我们", icon: FaEnvelope },
     ];
 
     this.renderedItems = []; // will contain references to rendered DOM elements of menu
