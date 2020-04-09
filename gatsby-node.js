@@ -1,6 +1,6 @@
 // const webpack = require("webpack");
 const _ = require("lodash");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
 const Promise = require("bluebird");
 
@@ -156,19 +156,19 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
-  switch (stage) {
-    case `build-javascript`:
-      actions.setWebpackConfig({
-        plugins: [
-          new BundleAnalyzerPlugin({
-            analyzerMode: "static",
-            reportFilename: "./report/treemap.html",
-            openAnalyzer: true,
-            logLevel: "error",
-            defaultSizes: "gzip",
-          }),
-        ],
-      });
-  }
-};
+// exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
+//   switch (stage) {
+//     case `build-javascript`:
+//       actions.setWebpackConfig({
+//         plugins: [
+//           new BundleAnalyzerPlugin({
+//             analyzerMode: "static",
+//             reportFilename: "./report/treemap.html",
+//             openAnalyzer: true,
+//             logLevel: "error",
+//             defaultSizes: "gzip",
+//           }),
+//         ],
+//       });
+//   }
+// };
