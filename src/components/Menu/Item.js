@@ -7,16 +7,24 @@ const Item = (props) => {
 
   return (
     <React.Fragment>
-      <li className={"hiddenItem" in props ? "hiddenItem" : "item"} key={label}>
-        <Link
-          to={to}
-          className={"hiddenItem" in props ? "inHiddenItem" : ""}
-          onClick={onClick}
-          data-slug={to}
-        >
-          {Icon && <Icon />} {label}
-        </Link>
-      </li>
+      {props.external ? (
+        <li className={"hiddenItem" in props ? "hiddenItem" : "item"} key={label}>
+          <a className={"hiddenItem" in props ? "inHiddenItem" : ""} href={to}>
+            {Icon && <Icon />} {label}
+          </a>
+        </li>
+      ) : (
+        <li className={"hiddenItem" in props ? "hiddenItem" : "item"} key={label}>
+          <Link
+            to={to}
+            className={"hiddenItem" in props ? "inHiddenItem" : ""}
+            onClick={onClick}
+            data-slug={to}
+          >
+            {Icon && <Icon />} {label}
+          </Link>
+        </li>
+      )}
 
       {/* --- STYLES --- */}
       <style jsx>{`
@@ -102,6 +110,7 @@ Item.propTypes = {
   onClick: PropTypes.func,
   icon: PropTypes.func,
   theme: PropTypes.object.isRequired,
+  external: PropTypes.bool,
 };
 
 export default Item;

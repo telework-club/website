@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
-import { FaHome } from "react-icons/fa/";
-import { FaEnvelope } from "react-icons/fa/";
-import { FaTag } from "react-icons/fa/";
+import { FaHome, FaEnvelope, FaTag, FaLeanpub } from "react-icons/fa/";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -22,11 +20,12 @@ class Menu extends React.Component {
     }));
 
     this.items = [
-      { to: "/", label: "首页", icon: FaHome },
-      { to: "/category/", label: "专题", icon: FaTag },
+      { to: "/", label: "首页", icon: FaHome, external: false },
+      { to: "/category/", label: "专题", icon: FaTag, external: false },
+      { to: "https://telework.club/kb/", label: "知识库", icon: FaLeanpub, external: true },
       // { to: "/search/", label: "Search", icon: FaSearch },
       // ...pages,
-      { to: "/contact/", label: "联系我们", icon: FaEnvelope },
+      { to: "/contact/", label: "联系我们", icon: FaEnvelope, external: false },
     ];
 
     this.renderedItems = []; // will contain references to rendered DOM elements of menu
@@ -146,14 +145,26 @@ class Menu extends React.Component {
         <nav className={`menu ${open ? "open" : ""}`} rel="js-menu">
           <ul className="itemList" ref={this.itemList}>
             {this.items.map((item) => (
-              <Item item={item} key={item.label} icon={item.icon} theme={theme} />
+              <Item
+                item={item}
+                key={item.label}
+                icon={item.icon}
+                theme={theme}
+                external={item.external}
+              />
             ))}
           </ul>
           {this.state.hiddenItems.length > 0 && <Expand onClick={this.toggleMenu} theme={theme} />}
           {open && screenWidth >= 1024 && (
             <ul className="hiddenItemList">
               {this.state.hiddenItems.map((item) => (
-                <Item item={item} key={item.label} hiddenItem theme={theme} />
+                <Item
+                  item={item}
+                  key={item.label}
+                  hiddenItem
+                  theme={theme}
+                  external={item.external}
+                />
               ))}
             </ul>
           )}
