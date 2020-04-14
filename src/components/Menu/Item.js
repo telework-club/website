@@ -9,7 +9,12 @@ const Item = (props) => {
     <React.Fragment>
       {props.external ? (
         <li className={"hiddenItem" in props ? "hiddenItem" : "item"} key={label}>
-          <a className={"hiddenItem" in props ? "inHiddenItem" : ""} href={to}>
+          <a
+            className={"hiddenItem" in props ? "inHiddenItem" : ""}
+            href={to}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {Icon && <Icon />} {label}
           </a>
         </li>
