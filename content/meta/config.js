@@ -13,7 +13,7 @@ module.exports = {
 
   /* info */
   headerTitle: "远程工作社区",
-  headerSubTitle: "定义新的工作方式",
+  headerSubTitle: "定义新时代的工作方式",
 
   /* manifest.json */
   manifestName: "Telework Community",
