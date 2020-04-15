@@ -24,7 +24,7 @@ class Menu extends React.Component {
       { to: "/category/", label: "专题", icon: FaTag, external: false },
       { to: "https://telework.club/kb/", label: "知识库", icon: FaLeanpub, external: true },
       // { to: "/search/", label: "Search", icon: FaSearch },
-      // ...pages,
+      ...pages,
       { to: "/contact/", label: "联系我们", icon: FaEnvelope, external: false },
     ];
 

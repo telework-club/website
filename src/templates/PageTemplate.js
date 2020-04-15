@@ -15,12 +15,12 @@ const PageTemplate = (props) => {
       },
     },
   } = props;
-
+  const classname = page.fields.slug.replace(/\//g, "");
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
         {(theme) => (
-          <Article theme={theme}>
+          <Article theme={theme} className={classname}>
             <Page page={page} theme={theme} />
           </Article>
         )}
@@ -45,6 +45,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+      }
+      fields {
+        slug
       }
     }
     site {
