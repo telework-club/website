@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Article = (props) => {
-  const { children, theme, className } = props;
+  const { children, theme } = props;
 
   return (
     <React.Fragment>
-      <article className={"article " + className}>{children}</article>
+      <article className="article">{children}</article>
 
       {/* --- STYLES --- */}
       <style jsx>{`
