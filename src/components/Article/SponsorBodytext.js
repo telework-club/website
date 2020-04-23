@@ -41,7 +41,7 @@ const Bodytext = (props) => {
             flex-direction: row;
             flex-wrap: wrap;
           }
-          :global(ul li a.gatsby-resp-image-link) {
+          :global(ul li span.gatsby-resp-image-background-image) {
             width: 200px;
             margin: 0;
             margin-bottom: 10px;
