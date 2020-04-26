@@ -65,7 +65,7 @@ const Hero = (props) => {
         }
 
         button {
-          background: ${theme.background.color.brand};
+          background: ${theme.background.color.alt};
           border: 0;
           border-radius: 50%;
           font-size: ${theme.font.size.m};
@@ -82,9 +82,9 @@ const Hero = (props) => {
           :global(svg) {
             position: relative;
             top: 5px;
-            fill: ${theme.color.neutral.white};
+            fill: ${theme.color.brand.primary};
             stroke-width: 40;
-            stroke: ${theme.color.neutral.white};
+            stroke: ${theme.color.brand.primary};
           }
         }
 
