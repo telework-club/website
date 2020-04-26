@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { FaArrowDown } from "react-icons/fa/";
+import telework from "../../images/png/telework-white.png";
 
 const Hero = (props) => {
   const { scrollToContent, backgrounds, theme } = props;
@@ -9,7 +10,8 @@ const Hero = (props) => {
   return (
     <React.Fragment>
       <section className="hero">
-        <h1>远程工作社区 - (TODO: slogan)</h1>
+        <img className="logo" src={telework} alt="远程工作" />
+        {/* <h1>远程工作社区 - (TODO: slogan)</h1> */}
         <button onClick={scrollToContent} aria-label="scroll">
           <FaArrowDown />
         </button>
@@ -30,6 +32,11 @@ const Hero = (props) => {
           height: 100px;
           padding: ${theme.space.inset.l};
           padding-top: ${theme.header.height.homepage};
+        }
+
+        .logo {
+          margin: ${theme.space.stack.l};
+          max-width: 80%;
         }
 
         h1 {
@@ -78,27 +85,16 @@ const Hero = (props) => {
             fill: ${theme.color.neutral.white};
             stroke-width: 40;
             stroke: ${theme.color.neutral.white};
-            animation-duration: ${theme.time.duration.long};
-            animation-name: buttonIconMove;
-            animation-iteration-count: infinite;
-          }
-        }
-
-        @keyframes buttonIconMove {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0);
           }
         }
 
         @from-width tablet {
           .hero {
             background-image: url(${backgrounds.tablet});
+          }
+
+          .logo {
+            max-width: 70%;
           }
 
           h1 {
@@ -114,6 +110,10 @@ const Hero = (props) => {
         @from-width desktop {
           .hero {
             background-image: url(${backgrounds.desktop});
+          }
+
+          .logo {
+            max-width: 30%;
           }
 
           h1 {

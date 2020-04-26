@@ -12,7 +12,7 @@ module.exports = {
   authorTwitterAccount: "telework-club",
 
   /* info */
-  headerTitle: "远程工作社区",
+  headerTitle: "远程工作",
   headerSubTitle: "定义新时代的工作方式",
 
   /* manifest.json */
