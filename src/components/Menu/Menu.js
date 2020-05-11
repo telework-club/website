@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
+import * as fa from "react-icons/fa";
 import { FaHome, FaEnvelope, FaTag, FaLeanpub } from "react-icons/fa/";
 
 import Item from "./Item";
@@ -17,14 +18,15 @@ class Menu extends React.Component {
       label: page.node.frontmatter.menuTitle
         ? page.node.frontmatter.menuTitle
         : page.node.frontmatter.title,
+      icon: page.node.frontmatter.icon ? fa[page.node.frontmatter.icon] : undefined,
     }));
 
     this.items = [
       { to: "/", label: "首页", icon: FaHome, external: false },
-      { to: "/category/", label: "专题", icon: FaTag, external: false },
-      { to: "https://telework.club/kb/", label: "知识库", icon: FaLeanpub, external: true },
       // { to: "/search/", label: "Search", icon: FaSearch },
       ...pages,
+      { to: "https://telework.club/kb/", label: "知识库", icon: FaLeanpub, external: true },
+      { to: "/category/", label: "归档", icon: FaTag, external: false },
       { to: "/contact/", label: "联系我们", icon: FaEnvelope, external: false },
     ];
 
