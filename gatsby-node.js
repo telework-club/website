@@ -23,6 +23,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       });
     }
 
+    if (source == "pages") {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
+      });
+    }
+
     if (source == "specials") {
       createNodeField({
         node,
