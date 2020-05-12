@@ -15,17 +15,22 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const separtorIndex = ~slug.indexOf("--") ? slug.indexOf("--") : 0;
     const shortSlugStart = separtorIndex ? separtorIndex + 2 : 0;
 
-    if (source !== "parts") {
-      let customizedPrefix = "";
-      if (source == "posts") {
-        customizedPrefix = `/${source}`;
-      }
+    if (source == "posts") {
       createNodeField({
         node,
         name: `slug`,
-        value: customizedPrefix + `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
+        value: `/posts${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
       });
     }
+
+    if (source == "specials") {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: `/specials${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
+      });
+    }
+
     createNodeField({
       node,
       name: `prefix`,
@@ -139,6 +144,22 @@ exports.createPages = ({ graphql, actions }) => {
         // and pages.
         const pages = items.filter((item) => item.node.fields.source === "pages");
         pages.forEach(({ node }) => {
+          const slug = node.fields.slug;
+          const source = node.fields.source;
+
+          createPage({
+            path: slug,
+            component: pageTemplate,
+            context: {
+              slug,
+              source,
+            },
+          });
+        });
+
+        // and specials.
+        const specials = items.filter((item) => item.node.fields.source === "specials");
+        specials.forEach(({ node }) => {
           const slug = node.fields.slug;
           const source = node.fields.source;
 
