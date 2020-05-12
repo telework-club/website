@@ -76,10 +76,10 @@ class IndexPage extends React.Component {
         <ThemeContext.Consumer>
           {(theme) => (
             <div className="main-intro">
-              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+              <Row gutter={[32, 32]}>
                 <Col xs={24} sm={8} md={8} lg={8} xl={8}>
                   <Card
-                    style={{ height: 450 }}
+                    style={{ height: 420 }}
                     hoverable={true}
                     cover={<img src={imgIntro1} alt="什么是远程工作" />}
                     onClick={() => this.gotoIntro("/specials/what-is-telework/")}
@@ -93,7 +93,7 @@ class IndexPage extends React.Component {
                 </Col>
                 <Col xs={24} sm={8} md={8} lg={8} xl={8}>
                   <Card
-                    style={{ height: 450 }}
+                    style={{ height: 420 }}
                     hoverable={true}
                     cover={<img src={imgIntro2} alt="为什么要远程工作" />}
                     onClick={() => this.gotoIntro("/specials/why-telework/")}
@@ -107,7 +107,7 @@ class IndexPage extends React.Component {
                 </Col>
                 <Col xs={24} sm={8} md={8} lg={8} xl={8}>
                   <Card
-                    style={{ height: 450 }}
+                    style={{ height: 420 }}
                     hoverable={true}
                     cover={<img src={imgIntro3} alt="远程工作是否适合" />}
                     onClick={() => this.gotoIntro("/specials/what-telework-suit/")}
