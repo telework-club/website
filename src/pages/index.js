@@ -6,8 +6,6 @@ import Blog from "../components/Blog";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
 import { Row, Col, Card } from "antd";
-import "antd/lib/grid/style/index.css";
-import "antd/lib/card/style/index.css";
 import { navigate } from "gatsby";
 
 const { Meta } = Card;

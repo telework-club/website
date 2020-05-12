@@ -8,6 +8,12 @@ import { getScreenWidth, timeoutThrottlerHandler } from "../utils/helpers";
 import Footer from "../components/Footer/";
 import Header from "../components/Header";
 
+import "antd/lib/grid/style/index.css";
+import "antd/lib/card/style/index.css";
+import "antd/lib/form/style/index.css";
+import "antd/lib/input/style/index.css";
+import "antd/lib/button/style/index.css";
+
 export const ThemeContext = React.createContext(null);
 export const ScreenWidthContext = React.createContext(0);
 export const FontLoadedContext = React.createContext(false);
