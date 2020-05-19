@@ -1,3 +1,4 @@
+import "typeface-source-sans-pro";
 import "typeface-open-sans";
 import FontFaceObserver from "fontfaceobserver";
 import PropTypes from "prop-types";
@@ -27,14 +28,38 @@ class Layout extends React.Component {
     this.state = {
       font400loaded: false,
       font600loaded: false,
+
       screenWidth: 0,
       headerMinimized: false,
       theme: themeObjectFromYaml,
     };
 
     if (typeof window !== `undefined`) {
-      this.loadFont("font400", "Open Sans", 400);
-      this.loadFont("font600", "Open Sans", 600);
+      Promise.all([
+        this.loadFont("font400-open-sans", "Open Sans", 400),
+        this.loadFont("font600-source-sans-pro", "Source Sans Pro", 400),
+      ]).then(
+        () => {
+          console.log(`font400 is available`);
+          this.setState({ font400loaded: true });
+        },
+        () => {
+          console.log(`font400loaded is not available`);
+        }
+      );
+
+      Promise.all([
+        this.loadFont("font400-open-sans", "Open Sans", 600),
+        this.loadFont("font600-source-sans-pro", "Source Sans Pro", 600),
+      ]).then(
+        () => {
+          console.log(`font600 is available`);
+          this.setState({ font600loaded: true });
+        },
+        () => {
+          console.log(`font600loaded is not available`);
+        }
+      );
     }
   }
 
@@ -65,20 +90,12 @@ class Layout extends React.Component {
     return false;
   };
 
-  loadFont = (name, family, weight) => {
+  loadFont = async (name, family, weight) => {
     const font = new FontFaceObserver(family, {
       weight: weight,
     });
 
-    font.load(null, 10000).then(
-      () => {
-        console.log(`${name} is available`);
-        this.setState({ [`${name}loaded`]: true });
-      },
-      () => {
-        console.log(`${name} is not available`);
-      }
-    );
+    return font.load(null, 10000);
   };
 
   render() {
@@ -149,8 +166,8 @@ class Layout extends React.Component {
                       }
                       body {
                         font-family: ${this.state.font400loaded
-                          ? "'Source Sans Pro', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;"
-                          : "'Helvetica Neue', Arial, sans-serif;"};
+                          ? "'Source Sans Pro', 'Open Sans', 'Helvetica Neue', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;"
+                          : "'Helvetica Neue', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;"};
                       }
                       h1,
                       h2,

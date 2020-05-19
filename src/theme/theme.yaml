@@ -112,8 +112,8 @@ text:
   lineHeight:
     default: *font-line-height-l
   maxWidth:
-    tablet: 650px
-    desktop: 700px
+    tablet: 800px
+    desktop: 800px
 heading:
   family: *font-family-target
   size:

@@ -51,6 +51,7 @@
     "styled-jsx-plugin-stylelint": "^0.1.0",
     "tinycolor2": "^1.4.1",
     "typeface-open-sans": "^0.0.75",
+    "typeface-source-sans-pro": "^1.1.5",
     "typography": "^0.16.19",
     "typography-theme-grand-view": "^0.16.19",
     "yaml-loader": "^0.6.0"
