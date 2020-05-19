@@ -200,6 +200,10 @@ class Menu extends React.Component {
             width: 100%;
           }
 
+          :global(li) {
+            margin-bottom: 0;
+          }
+
           @below desktop {
             .menu {
               &::after {
