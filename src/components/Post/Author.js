@@ -38,6 +38,7 @@ const Author = (props) => {
           width: 100%;
         }
         .note {
+          color: ${theme.text.color.normal};
           font-size: 0.9em;
           line-height: 1.6;
         }

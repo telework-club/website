@@ -60,6 +60,7 @@ const CategoryPage = (props) => {
             {/* --- STYLES --- */}
             <style jsx>{`
               h2 {
+                color: ${theme.text.color.normal};
                 margin: 0 0 0.5em;
               }
               h2 :global(svg) {

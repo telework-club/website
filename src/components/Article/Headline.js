@@ -11,6 +11,7 @@ const Headline = (props) => {
       {/* --- STYLES --- */}
       <style jsx>{`
         h1 {
+          color: ${theme.text.color.title};
           font-size: ${theme.font.size.xxl};
           margin: ${theme.space.stack.l};
           animation-name: headlineEntry;

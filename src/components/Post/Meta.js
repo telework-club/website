@@ -38,6 +38,7 @@ const Meta = (props) => {
             margin: ${theme.space.inline.xs};
           }
           span {
+            color: ${theme.text.color.normal};
             align-items: center;
             display: flex;
             text-transform: uppercase;

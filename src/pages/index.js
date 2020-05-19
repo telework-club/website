@@ -77,42 +77,42 @@ class IndexPage extends React.Component {
               <Row gutter={[32, 32]}>
                 <Col xs={24} sm={8} md={8} lg={8} xl={8}>
                   <Card
-                    style={{ height: 420 }}
+                    style={{ height: 460 }}
                     hoverable={true}
                     cover={<img src={imgIntro1} alt="什么是远程工作" />}
                     onClick={() => this.gotoIntro("/specials/what-is-telework/")}
                   >
                     <h3>什么是远程工作</h3>
                     <br />
-                    <p>
+                    <p className="intro-item-body">
                       远程工作不是简单的离开固定的办公场所那么简单，远程的真正含义是协作方式上的延伸，以及由此带来管理上的变化。
                     </p>
                   </Card>
                 </Col>
                 <Col xs={24} sm={8} md={8} lg={8} xl={8}>
                   <Card
-                    style={{ height: 420 }}
+                    style={{ height: 460 }}
                     hoverable={true}
                     cover={<img src={imgIntro2} alt="为什么要远程工作" />}
                     onClick={() => this.gotoIntro("/specials/why-telework/")}
                   >
                     <h3>为什么要远程工作</h3>
                     <br />
-                    <p>
+                    <p className="intro-item-body">
                       远程的方式，可以突破地域和时空的限制，从而让整个团队乃至公司的运行效率更有突破性，采用远程，某种意义上可以让组织的灵敏性变高，进而快速应对变化。
                     </p>
                   </Card>
                 </Col>
                 <Col xs={24} sm={8} md={8} lg={8} xl={8}>
                   <Card
-                    style={{ height: 420 }}
+                    style={{ height: 460 }}
                     hoverable={true}
                     cover={<img src={imgIntro3} alt="远程工作是否适合" />}
                     onClick={() => this.gotoIntro("/specials/what-telework-suit/")}
                   >
                     <h3>远程工作是否适合</h3>
                     <br />
-                    <p>
+                    <p className="intro-item-body">
                       就像万事没有银弹一样，远程并非适合所有的行业和职位，是在一定限制框架下的工作方式转变，这种限制一旦突破，将引领新的工作方式变革。
                     </p>
                   </Card>
@@ -129,6 +129,9 @@ class IndexPage extends React.Component {
         <Seo facebook={facebook} />
 
         <style jsx>{`
+          a:hover {
+            text-decoration: unset;
+          }
           hr {
             margin: 0;
             border: 0;
@@ -140,6 +143,9 @@ class IndexPage extends React.Component {
             padding-right: 30px;
             margin-left: auto;
             margin-right: auto;
+          }
+          .intro-item-body {
+            font-size: 16px;
           }
         `}</style>
       </React.Fragment>

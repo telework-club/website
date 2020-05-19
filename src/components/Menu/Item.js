@@ -59,7 +59,7 @@ const Item = (props) => {
         @from-width desktop {
           .item {
             :global(a) {
-              color: ${theme.text.color.primary};
+              color: ${theme.text.color.normal};
               padding: ${theme.space.inset.s};
               transition: all ${theme.time.duration.default};
               border-radius: ${theme.size.radius.small};

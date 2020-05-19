@@ -102,6 +102,7 @@ const Item = (props) => {
         }
 
         h1 {
+          color: ${theme.text.color.title};
           padding: ${theme.space.m} ${theme.space.s} 0;
           line-height: ${theme.blog.h1.lineHeight};
           font-size: ${theme.blog.h1.size};

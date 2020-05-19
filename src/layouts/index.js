@@ -149,12 +149,13 @@ class Layout extends React.Component {
                       }
                       body {
                         font-family: ${this.state.font400loaded
-                          ? "'Open Sans', sans-serif;"
-                          : "Arial, sans-serif;"};
+                          ? "'Source Sans Pro', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;"
+                          : "'Helvetica Neue', Arial, sans-serif;"};
                       }
                       h1,
                       h2,
                       h3 {
+                        color: #273849;
                         font-weight: ${this.state.font600loaded ? 600 : 400};
                         line-height: 1.1;
                         letter-spacing: -0.03em;
@@ -164,6 +165,7 @@ class Layout extends React.Component {
                         letter-spacing: -0.04em;
                       }
                       p {
+                        color: #304455;
                         margin: 0;
                       }
                       strong {
@@ -171,7 +173,7 @@ class Layout extends React.Component {
                       }
                       a {
                         text-decoration: none;
-                        color: #666;
+                        color: #999;
                       }
                       main {
                         width: auto;
