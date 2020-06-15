@@ -2,6 +2,7 @@
 title: 争议40年，远程办公的自由与代价
 description: "争议40年，远程办公的自由与代价"
 author: 中国新闻周刊
+cover: 20200225105932290.jpeg
 ---
 
 [转载](http://www.chinanews.com/cj/2020/03-09/9118498.shtml)
