@@ -13,24 +13,15 @@ const Item = (props) => {
     post: {
       excerpt,
       fields: { slug, prefix },
-      frontmatter: {
-        title,
-        category,
-        author,
-        cover: {
-          children: [{ fluid }],
-        },
-      },
+      frontmatter: { title, category, author, cover },
     },
   } = props;
-
+  const fluid = cover && cover.children && cover.children[0] && cover.children[0].fluid;
   return (
     <React.Fragment>
       <li>
         <Link to={slug} key={slug} className="link">
-          <div className="gatsby-image-outer-wrapper">
-            <Img fluid={fluid} />
-          </div>
+          <div className="gatsby-image-outer-wrapper">{fluid && <Img fluid={fluid} />}</div>
           <h1>{title}</h1>
           <p className="meta">
             <span>

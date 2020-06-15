@@ -3,7 +3,6 @@ title: 网络安全标准实践指南
 category: "best practices"
 description: "网络安全标准实践指南"
 author: 全国信息安全标准化技术委员会秘书处
-cover: 20200225105932290.jpeg
 ---
 
 ## TC260-PG-20201A

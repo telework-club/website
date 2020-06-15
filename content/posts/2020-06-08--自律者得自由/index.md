@@ -3,7 +3,6 @@ title: 从远程办公看未来的工作方式：自律者得自由
 category: "story"
 description: "从远程办公看未来的工作方式：自律者得自由"
 author: IMS李檬
-cover: 20200225105932290.jpeg
 ---
 
 [转载](https://www.tmtpost.com/4257399.html)

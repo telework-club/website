@@ -3,7 +3,6 @@ title: What is telework literally
 category: "best practices"
 description: "What is telework literally"
 author: opm.gov
-cover: 20200225105932290.jpeg
 ---
 
 The official definition of "telework" can be found in the Telework Enhancement Act of 2010: "the term 'telework' or 'teleworking' refers to a work flexibility arrangement under which an employee performs the duties and responsibilities of such employee's position, and other authorized activities, from an approved worksite other than the location from which the employee would otherwise work."
