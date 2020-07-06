@@ -166,8 +166,8 @@ class Layout extends React.Component {
                       }
                       body {
                         font-family: ${this.state.font400loaded
-                          ? "'Source Sans Pro', 'Open Sans', 'Helvetica Neue', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;"
-                          : "'Helvetica Neue', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;"};
+                          ? "'Source Sans Pro', 'Open Sans', 'Segoe UI', 'Droid Sans', 'PingFang SC', 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', -apple-system, Arial, sans-serif;"
+                          : "                                'Segoe UI', 'Droid Sans', 'PingFang SC', 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', -apple-system, Arial, sans-serif;"};
                       }
                       h1,
                       h2,
@@ -184,6 +184,7 @@ class Layout extends React.Component {
                       p {
                         color: #304455;
                         margin: 0;
+                        word-spacing: 0.8px;
                       }
                       strong {
                         font-weight: ${this.state.font600loaded ? 600 : 400};
