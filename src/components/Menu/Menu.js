@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
 import * as fa from "react-icons/fa";
-import { FaHome, FaEnvelope, FaArchive, FaLeanpub } from "react-icons/fa/";
+import { FaHome, FaEnvelope, FaArchive, FaLeanpub, FaForumbee } from "react-icons/fa/";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -24,7 +24,8 @@ class Menu extends React.Component {
     this.items = [
       { to: "/", label: "首页", icon: FaHome, external: false },
       // { to: "/search/", label: "Search", icon: FaSearch },
-      { to: "https://telework.club/kb/", label: "知识库", icon: FaLeanpub, external: true },
+      { to: "https://forum.telework.club/", label: "社区", icon: FaForumbee, external: true },
+      { to: "https://kb.telework.club/", label: "知识库", icon: FaLeanpub, external: true },
       { to: "/category/", label: "归档", icon: FaArchive, external: false },
       ...pages,
       { to: "/contact/", label: "联系我们", icon: FaEnvelope, external: false },
