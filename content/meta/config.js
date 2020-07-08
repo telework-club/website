@@ -17,7 +17,7 @@ module.exports = {
 
   /* manifest.json */
   manifestName: "Telework Community",
-  manifestShortName: "Telework Community", // max 12 characters
+  manifestShortName: "Telework", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
