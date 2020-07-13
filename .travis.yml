@@ -5,13 +5,23 @@ cache: yarn
 install: yarn install
 script:
   - yarn build
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $GITHUB_TOKEN
+#   repo: telework-club/telework-club.github.io
+#   local_dir: public
+#   target_branch: master
+#   keep_history: true
+#   on:
+#     branch: master
+before_deploy:
+- openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in .deploy/id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- ssh-keyscan -t ecdsa -H $DEPLOY_HOST 2>&1 | tee -a $HOME/.ssh/known_hosts
 deploy:
-  provider: pages
+  provider: script
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  repo: telework-club/telework-club.github.io
-  local_dir: public
-  target_branch: master
-  keep_history: true
+  script: rsync -zr --delete --quiet public/ $DEPLOY_PATH
   on:
     branch: master
