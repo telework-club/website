@@ -8,7 +8,7 @@ import { request } from "graphql-request";
 import MarkDown from "react-markdown";
 
 const queryStr = `query{
-  topics(node: 2, onlyLatest: false){
+  topics(node: 15, onlyLatest: false){
       id
       title
       content
