@@ -6,6 +6,7 @@ module.exports = {
   pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
+  topicAPIEndPoint: "http://localhost:8082/graphql",
 
   /* author */
   authorName: "Telework Community",
