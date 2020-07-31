@@ -12,6 +12,7 @@ const queryStr = `query{
       id
       title
       content
+      link
   }
 }`;
 
@@ -46,7 +47,9 @@ const LivePage = (props) => {
             {topics.map((topic) => {
               return (
                 <div key={topic.id} className="topic-block">
-                  <span className="title">{topic.title}</span>
+                  <span className="title">
+                    <a href={topic.link}>{topic.title}</a>
+                  </span>
                   <hr />
                   <MarkDown source={topic.content} />
                 </div>
